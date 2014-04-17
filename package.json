@@ -1,0 +1,22 @@
+{
+	"name": "onescript-set",
+	"version": "0.0.0",
+	"description": "",
+	"main": "lib/set.js",
+	"scripts": {
+		"test": "mocha test"
+	},
+	"keywords": [
+		"set"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/OneScript/Set.git"
+	},
+	"devDependencies": {
+		"mocha": "*",
+		"should": "*"
+	},
+	"author": "OneScript <onescript.git@gmail.com>",
+	"license": "MIT"
+}
