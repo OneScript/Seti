@@ -91,6 +91,13 @@ describe('#set', function() {
 		});
 
 		var set2 = set.add('foo'); // create new copy
+
+		set.on('add', function(element) {
+			if(element === 'bar') {
+				assert.equal(false, 'events are passed by reference');
+			}
+		});
+
 		set2.add('bar');
 	});
 
@@ -110,6 +117,13 @@ describe('#set', function() {
 		});
 
 		var set2 = set.remove('foo'); // create new copy
+
+		set.on('remove', function(element) {
+			if(element === 'bar') {
+				assert.equal(false, 'events are passed by reference');
+			}
+		});
+
 		set2.remove('bar');
 	});
 });
