@@ -57,5 +57,59 @@ describe('#set', function() {
 		assert.deepEqual(new Set(['foo', 'bar', 'baz']).union(new Set(['foo', 'boo'])).elements, ['foo', 'bar', 'baz', 'boo']);
 	});
 
-	// @todo Test events + events on copy
+	it('should map', function() {
+		assert.deepEqual(new Set([1, 2, 3]).map(function(number) {
+			return number * 3;
+		}).elements, [3, 6, 9]);
+	});
+
+	it('should filter', function() {
+		assert.deepEqual(new Set([0, 1, 2, 3, 4]).filter(function(number) {
+			return number % 2 == 0;
+		}).elements, [0, 2, 4]);
+	});
+
+	it('should reduce', function() {
+		assert.equal(new Set([1, 2, 3, 4, 5, 6]).reduce(function(acc, number) {
+			return acc + number;
+		}, 0), 21);
+	});
+
+	it('should fire add event', function(done) {
+		var set = new Set();
+
+		var error = setTimeout(function() {
+			assert.equal(false, 'add event not fired');
+			done();
+		}, 1000);
+
+		set.on('add', function(element) {
+			if(element === 'bar') {
+				clearTimeout(error);
+				done();
+			}
+		});
+
+		var set2 = set.add('foo'); // create new copy
+		set2.add('bar');
+	});
+
+	it('should fire remove event', function(done) {
+		var set = new Set(['foo', 'bar']);
+
+		var error = setTimeout(function() {
+			assert.equal(false, 'remove event not fired');
+			done();
+		}, 1000);
+
+		set.on('remove', function(element) {
+			if(element === 'bar') {
+				clearTimeout(error);
+				done();
+			}
+		});
+
+		var set2 = set.remove('foo'); // create new copy
+		set2.remove('bar');
+	});
 });
