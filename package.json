@@ -1,6 +1,6 @@
 {
 	"name": "onescript-set",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Immutable set data structure",
 	"main": "lib/set.js",
 	"scripts": {
