@@ -48,49 +48,49 @@ new Seti(['foo', 'bar', 'foo']).lenght; // 2
 Add element to set.
 
 ```javascript
-New Seti('foo').add('bar').elements;  // ['foo', 'bar']
+new Seti('foo').add('bar').elements;  // ['foo', 'bar']
 ```
 
 ### Seti.remove(element)
 Remove element from set.
 
 ```javascript
-New Seti(['foo', 'bar']).remove('bar').elements;  // ['foo']
+new Seti(['foo', 'bar']).remove('bar').elements;  // ['foo']
 ```
 
 ### Seti.contains(element)
 Check for element existence in set.
 
 ```javascript
-New Seti(['foo', 'bar']).contains('bar').elements;  // True
+new Seti(['foo', 'bar']).contains('bar').elements;  // True
 ```
 
 ### Seti.union(set)
 Concat two sets.
 
 ```javascript
-New Seti(['foo', 'bar']).union(new Set(['foo', 'baz']).elements;  // ['foo', 'bar', 'baz']
+new Seti(['foo', 'bar']).union(new Set(['foo', 'baz']).elements;  // ['foo', 'bar', 'baz']
 ```
 
 ### Seti.intersect(set)
 Same elements from two sets.
 
 ```javascript
-New Seti(['foo', 'bar']).intersect(new Set(['foo', 'baz']).elements;  // ['foo']
+new Seti(['foo', 'bar']).intersect(new Set(['foo', 'baz']).elements;  // ['foo']
 ```
 
 ### Seti.difference(set)
 Different elements from set against set.
 
 ```javascript
-New Seti(['foo', 'bar']).difference(new Set(['foo', 'baz']).elements;  // ['bar']
+new Seti(['foo', 'bar']).difference(new Set(['foo', 'baz']).elements;  // ['bar']
 ```
 
 ### Seti.filter(fn(element))
 Filter set on given predicate.
 
 ```javascript
-New Seti([1, 2, 3, 4]).filter(function(element) {
+new Seti([1, 2, 3, 4]).filter(function(element) {
     return element % 2 === 0;
 }).elements;  // [2, 4]
 ```
@@ -99,7 +99,7 @@ New Seti([1, 2, 3, 4]).filter(function(element) {
 Map set on given predicate.
 
 ```javascript
-New Seti([1, 2, 3, 4]).map(function(element) {
+new Seti([1, 2, 3, 4]).map(function(element) {
     return i * i;
 }).elements;  // [1, 4, 9, 16]
 ```
@@ -108,7 +108,16 @@ New Seti([1, 2, 3, 4]).map(function(element) {
 Reduce set to one value.
 
 ```javascript
-New Seti([1, 2, 3, 4]).reduce(function(acc, element) {
+new Seti([1, 2, 3, 4]).reduce(function(acc, element) {
     return acc + element;
 }).elements;  // 10
 ```
+
+## Events
+- Listeners are copied to new set when change is performed.
+
+### add
+Fired when element is added to set.
+
+### remove
+Fired when element is removed from set.
