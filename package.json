@@ -7,11 +7,13 @@
 		"test": "mocha test"
 	},
 	"keywords": [
-		"set"
+		"set",
+		"immutable",
+		"collection"
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/OneScript/Set.git"
+		"url": "https://github.com/OneScript/Seti.git"
 	},
 	"devDependencies": {
 		"mocha": "*",
